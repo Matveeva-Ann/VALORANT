@@ -4,6 +4,7 @@ import { useState } from 'react';
 import PlayerCardDataItem from './PlayerCardDataItem';
 import { formattedDateTime } from '@/dateUtils/formattedDateTime';
 import { formatTime } from '@/dateUtils/formatTime';
+import Link from 'next/link';
 
 export interface PlayerCardProps {
   playerData: Player;
@@ -24,14 +25,20 @@ export default function PlayerCard({ playerData }: PlayerCardProps) {
   return (
     <>
       <div
-        className={`w-8/12 h-2/4 z-10 rounded-lg bg-white p-6 pt-2 border-solid border-1 shadow-md ${
+        className={`w-11/12 sm:w-8/12 h-2/4 z-10 relative rounded-lg bg-white p-6 pt-2 border-solid border-1 text-black shadow-md ${
           playerData.team_result ? 'shadow-cyan-500' : 'shadow-rose-600'
         } ${playerData.team_result ? 'border-cyan-500' : 'border-rose-600'}`}
       >
-        <h2 className="text-center text-3xl font-medium mb-6">Map played</h2>
-        <div className="flex items-center">
+        <Link className="absolute flex items-center gap-2 justify-between" href={'/'}>
+          <svg xmlns="http://www.w3.org/2000/svg" width={26} viewBox="0 0 50 50" id="arrow-left">
+            <path d="m5.414 24 6.293-6.293-1.414-1.414L1.586 25l8.707 8.707 1.414-1.414L5.414 26H49v-2z"></path>
+          </svg>
+          <span className="leading-4">Go back</span>
+        </Link>
+        <h2 className="text-center text-3xl font-medium mb-6 mt-6 sm:mt-0">Map played</h2>
+        <div className="flex flex-col lg:flex-row items-center">
           <img
-            className="w-7/12 h-max object-cover object-center rounded-xl mr-8 z-10"
+            className="w-full mb-3 h-max object-cover object-center rounded-xl lg:w-7/12 lg:mr-8 z-10"
             src={playerData.avatar}
             alt="playerAvatar"
             onError={handleImageError}

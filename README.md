@@ -1,6 +1,6 @@
 # Project "Valorant Stats" 🎮📊
 
-View the project: ([https://valorant.com](https://valorant-f9xxwqcqt-annas-projects-6caf131a.vercel.app/))
+View the project: ([https://valorant.com](https://valorant-delta.vercel.app/))
 
 ## Used Technologies ⚙️:
 - Next.js
@@ -8,9 +8,10 @@ View the project: ([https://valorant.com](https://valorant-f9xxwqcqt-annas-proje
 - Tailwindcss
 - Redux Toolkit + RTK Query
 - Tsparticles library
+- Jest
 
 ## About the Project 💻
-The "Valorant Stats" project provides statistics from the game Valorant, including leaderboard data and player match details.
+The "Valorant Stats" project provides statistics from the game Valorant, including leaderboard data and player match details. The project is also covered with unit tests to ensure code reliability and functionality.
 
 ## Functionality:
 

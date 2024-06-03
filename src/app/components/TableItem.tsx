@@ -13,7 +13,7 @@ export default function TableItem({ leader, index }: TableItemProps) {
 
   return (
     <tr
-      className={`cursor-pointer ${index % 2 ? 'bg-gray-300' : 'bg-gray-200'} hover:bg-gray-100 hover:scale-105 duration-200`}
+      className={`text-black cursor-pointer ${index % 2 ? 'bg-gray-300' : 'bg-gray-200'} hover:bg-gray-100 hover:scale-105 duration-200`}
       key={index}
       onClick={()=> router.push(`/playerPage/${leader.id}`)}
     >

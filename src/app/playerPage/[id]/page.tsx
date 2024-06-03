@@ -102,8 +102,8 @@ export default function Page({ params }: PageProps) {
       <div className="flex items-center justify-center">
         {isLoading && (
           <div
-            style={{minHeight: '50vh'}}
-            className='w-8/12 z-10 rounded-lg bg-white p-6 pt-2 border-solid border-1 shadow-md'
+            style={{ minHeight: '50vh' }}
+            className="w-8/12 z-10 rounded-lg bg-white p-6 pt-2 border-solid border-1 shadow-md"
           ></div>
         )}
         {!error && !isLoading && data && <PlayerCard playerData={data}></PlayerCard>}

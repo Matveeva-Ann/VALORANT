@@ -3,22 +3,21 @@
 import PlayerCard from '@/app/components/PlayerCard';
 import { useGetPlayerQuery } from '@/redux/leaders';
 import Link from 'next/link';
-import React from 'react';
-import Particles from "react-tsparticles";
-import { Engine } from "tsparticles-engine";
-import { loadSlim } from "tsparticles-slim";
-import { useCallback } from "react";
-import gsap from "gsap";
-import ScrollToPlugin from "gsap/ScrollToPlugin";
+import React, { useEffect } from 'react';
+import Particles from 'react-tsparticles';
+import { Engine } from 'tsparticles-engine';
+import { loadSlim } from 'tsparticles-slim';
+import { useCallback } from 'react';
+import gsap from 'gsap';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
 export interface PageProps {
   params: { id: string };
 }
 
 export default function Page({ params }: PageProps) {
-  const {data, error} = useGetPlayerQuery(params.id);
+  const { data, error, isLoading } = useGetPlayerQuery(params.id);
   const logo = '/radiant-badge.png';
-
 
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
@@ -26,14 +25,9 @@ export default function Page({ params }: PageProps) {
 
   gsap.registerPlugin(ScrollToPlugin);
 
-  function scrollTo(target: any) {
-    gsap.to(window, { duration: 1, scrollTo: target });
-  }
-
-
   return (
-    <div className='min-h-screen' style={{ backgroundColor: '#ff4655' }}>
-       <Particles
+    <div className="min-h-screen" style={{ backgroundColor: '#0f1923' }}>
+      <Particles
         id="tsparticles"
         init={particlesInit}
         options={{
@@ -42,11 +36,11 @@ export default function Page({ params }: PageProps) {
             events: {
               onClick: {
                 enable: true,
-                mode: "push",
+                mode: 'mode',
               },
               onHover: {
                 enable: true,
-                mode: "grab",
+                mode: 'grab',
               },
               resize: true,
             },
@@ -62,20 +56,20 @@ export default function Page({ params }: PageProps) {
           },
           particles: {
             color: {
-              value: "#ffffff",
+              value: '#ff4655',
             },
             links: {
-              color: "#ffffff",
+              color: '#ff4655',
               distance: 150,
               enable: true,
               opacity: 0.5,
               width: 1,
             },
             move: {
-              direction: "none",
+              direction: 'none',
               enable: true,
               outModes: {
-                default: "bounce",
+                default: 'bounce',
               },
               random: false,
               speed: 2,
@@ -92,7 +86,7 @@ export default function Page({ params }: PageProps) {
               value: 0.5,
             },
             shape: {
-              type: "circle",
+              type: 'circle',
             },
             size: {
               value: { min: 1, max: 3 },
@@ -103,10 +97,16 @@ export default function Page({ params }: PageProps) {
       />
 
       <Link className="inline-block" href={'/'}>
-        <img className='p-8' src={logo} alt="logo"/>
+        <img className="p-8" src={logo} alt="logo" />
       </Link>
-      <div className="flex items-center justify-center" >
-        {!error && data && <PlayerCard playerData={data}></PlayerCard>}
+      <div className="flex items-center justify-center">
+        {isLoading && (
+          <div
+            style={{minHeight: '50vh'}}
+            className='w-8/12 z-10 rounded-lg bg-white p-6 pt-2 border-solid border-1 shadow-md'
+          ></div>
+        )}
+        {!error && !isLoading && data && <PlayerCard playerData={data}></PlayerCard>}
       </div>
     </div>
   );

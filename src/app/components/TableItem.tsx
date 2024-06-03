@@ -1,10 +1,10 @@
 'use client';
-import { Leaders } from '@/api/api';
+import { Player } from '@/types/player';
 import { useRouter } from 'next/navigation';
 
 
 interface TableItemProps {
-  leader: Leaders;
+  leader: Player;
   index: number;
 }
 

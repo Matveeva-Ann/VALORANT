@@ -10,6 +10,7 @@ import { loadSlim } from 'tsparticles-slim';
 import { useCallback } from 'react';
 import gsap from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import { FaLongArrowAltLeft } from 'react-icons/fa';
 
 export interface PageProps {
   params: { id: string };
@@ -26,7 +27,7 @@ export default function Page({ params }: PageProps) {
   gsap.registerPlugin(ScrollToPlugin);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#0f1923' }}>
+    <div className="min-h-screen" style={{ minHeight: 'calc(100vh - 68px)', backgroundColor: '#0f1923' }}>
       <Particles
         id="tsparticles"
         init={particlesInit}
@@ -96,10 +97,11 @@ export default function Page({ params }: PageProps) {
         }}
       />
 
-      <Link className="inline-block" href={'/'}>
-        <img className="p-8" src={logo} alt="logo" />
-      </Link>
-      <div className="flex items-center justify-center">
+      <div className="flex flex-col items-center justify-center" style={{ minHeight: 'calc(100vh - 100px)' }}>
+        <Link href={'/'} className="mb-2 flex items-center gap-3 cursor-pointer p-3 text-xl text-white">
+          <FaLongArrowAltLeft />
+          Go Back
+        </Link>
         {isLoading && (
           <div
             style={{ minHeight: '50vh' }}

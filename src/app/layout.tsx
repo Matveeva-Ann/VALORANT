@@ -1,5 +1,7 @@
+import Link from 'next/link';
 import './globals.css';
-import Providers from './Providers';
+import Providers, { RouterContext } from './Providers';
+import SwitchThemes from './components/SwitchTheme';
 
 export default function RootLayout({
   children,
@@ -9,7 +11,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

@@ -25,16 +25,10 @@ export default function PlayerCard({ playerData }: PlayerCardProps) {
   return (
     <>
       <div
-        className={`w-11/12 sm:w-8/12 h-2/4 z-10 relative rounded-lg bg-white p-6 pt-2 border-solid border-1 text-black shadow-md ${
+        className={`w-11/12 sm:w-8/12 h-2/4 z-10 relative rounded-lg bg-white dark:bg-gray-600 p-6 pt-2 border-solid border-1 text-black dark:text-slate-200 shadow-md ${
           playerData.team_result ? 'shadow-cyan-500' : 'shadow-rose-600'
         } ${playerData.team_result ? 'border-cyan-500' : 'border-rose-600'}`}
       >
-        <Link className="absolute flex items-center gap-2 justify-between" href={'/'}>
-          <svg xmlns="http://www.w3.org/2000/svg" width={26} viewBox="0 0 50 50" id="arrow-left">
-            <path d="m5.414 24 6.293-6.293-1.414-1.414L1.586 25l8.707 8.707 1.414-1.414L5.414 26H49v-2z"></path>
-          </svg>
-          <span className="leading-4">Go back</span>
-        </Link>
         <h2 className="text-center text-3xl font-medium mb-6 mt-6 sm:mt-0">Map played</h2>
         <div className="flex flex-col lg:flex-row items-center">
           <img
@@ -50,20 +44,20 @@ export default function PlayerCard({ playerData }: PlayerCardProps) {
             <PlayerCardDataItem title="Kda:">
               <ul className="ml-4">
                 <li>
-                  <span className="text-slate-800 mr-2">kills:</span> {playerData.kda?.kills || 0}
+                  <span className="text-slate-800 dark:text-slate-400  mr-2">kills:</span> {playerData.kda?.kills || 0}
                 </li>
                 <li>
-                  <span className="text-slate-800 mr-2">deaths:</span> {playerData.kda?.deaths || 0}
+                  <span className="text-slate-800 dark:text-slate-400  mr-2">deaths:</span> {playerData.kda?.deaths || 0}
                 </li>
                 <li>
-                  <span className="text-slate-800 mr-2">assists:</span> {playerData.kda?.assists || 0}
+                  <span className="text-slate-800 dark:text-slate-400  mr-2">assists:</span> {playerData.kda?.assists || 0}
                 </li>
               </ul>
             </PlayerCardDataItem>
             <PlayerCardDataItem title="Agent:">{playerData.agent}</PlayerCardDataItem>
 
             <div className="flex">
-              <dt className="font-medium text-slate-500 mr-2">Agent image:</dt>
+              <dt className="font-medium text-slate-500 dark:text-slate-900 mr-2">Agent image:</dt>
               <dd className="underline cursor-pointer text-blue-600" onClick={() => openModal(playerData.agent_image)}>
                 click to Link
               </dd>

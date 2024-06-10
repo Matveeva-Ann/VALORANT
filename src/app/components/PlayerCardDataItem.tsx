@@ -6,7 +6,7 @@ export interface PlayerCardDataItemProps {
 export default function PlayerCardDataItem({ title, children }: PlayerCardDataItemProps) {
   return (
     <div className="flex mb-1">
-      <dt className="font-medium text-slate-500 mr-2">{title}</dt>
+      <dt className="font-medium text-slate-500 dark:text-slate-900 mr-2">{title}</dt>
       <dd>{children}</dd>
     </div>
   );

@@ -1,5 +1,5 @@
 
-import {formattedDateTime} from '../dateUtils/formattedDateTime';
+import {formattedDateTime} from './formattedDateTime';
 
 describe('formattedDateTime function', () => {
   it('returns a formatted date and time string', () => {

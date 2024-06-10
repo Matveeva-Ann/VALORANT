@@ -38,7 +38,7 @@
     "dist/types/**/*.ts",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-, "jest.config.ts", "src/app/components/table.test.js", "src/__tests__/Table.test.tsx", "src/test-utils/createMockRouter.js"  ],
+, "jest.config.ts", "src/app/components/table.test.js", "src/app/components/Table.test.tsx", "src/test-utils/createMockRouter.js"  ],
   "exclude": [
     "node_modules"
   ]

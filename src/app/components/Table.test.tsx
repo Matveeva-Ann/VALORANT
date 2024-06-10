@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import Table from '../app/components/Table';
+import Table from './Table';
 
 const mockData = Array.from({ length: 30 }, (_, i) => ({
   IsAnonymized: false,

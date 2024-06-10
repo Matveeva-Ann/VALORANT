@@ -24,7 +24,7 @@ export default function Table() {
   }
 
   return (
-    <div className="py-8 min-h-screen" style={{ backgroundColor: '#ece8e1' }} data-testid="table-component">
+    <div className="py-8 min-h-screen bg-zinc-300 dark:bg-zinc-500" data-testid="table-component">
       <table className="table-fixed shadow-xl border-cyan-2 mx-auto my-8 w-4/5 overflow-hidden">
         <thead>
           <tr style={{ backgroundColor: '#0f1923', color: '#ece8e1' }}>
